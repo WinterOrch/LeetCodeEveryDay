@@ -9,9 +9,9 @@ public class _56 {
             m <<= 1;
         for(int num: nums) {              // 3. 遍历 nums 分组
             if((num & m) != 0)
-                x ^= num;                 // 4. 当 num & m != 0
+                x ^= num;                 // 4. m 位上为 0 的
             else
-                y ^= num;                 // 4. 当 num & m == 0
+                y ^= num;                 // 4. m 位上为 0 的数
         }
         return new int[] {x, y};          // 5. 返回出现一次的数字
     }
