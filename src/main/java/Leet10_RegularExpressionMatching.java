@@ -50,10 +50,10 @@ public class Leet10_RegularExpressionMatching {
         for(int i = 0; i <= sLen; ++i) {
             for(int j = 1; j <= pLen; ++j) {
 
-                if(j > 1 && arr2[j - 1] == '*') {
+                if (j > 1 && arr2[j - 1] == '*') {
                     dp[i][j] = dp[i][j - 2] || (i > 0 && (arr1[i - 1] == arr2[j - 2] || arr2[j - 2] == '.')
                                                 && dp[i - 1][j]);
-                }else {
+                } else {
                     dp[i][j] = i > 0 && dp[i - 1][j - 1]
                                      && (arr1[i - 1] == arr2[j - 1] || arr2[j - 1] == '.');
                 }

@@ -1,7 +1,7 @@
 public class Leet115_DistinctSubsequences {
     public int numDistinct(String s, String t) {
-        char[] chars = s.toCharArray(), chart = t.toCharArray();
-        int n = chars.length, m = chart.length;
+        char[] src = s.toCharArray(), des = t.toCharArray();
+        int n = src.length, m = des.length;
         int[][] dp = new int[m + 1][n + 1];
         dp[0][0] = 1;
 
@@ -11,7 +11,7 @@ public class Leet115_DistinctSubsequences {
 
         for (int i = 1; i <= m; ++i) {
             for (int j = 1; j <= n; ++j) {
-                dp[i][j] = dp[i][j - 1] + ((chars[j - 1] == chart[i - 1]) ? dp[i - 1][j - 1] : 0);
+                dp[i][j] = dp[i][j - 1] + ((src[j - 1] == des[i - 1]) ? dp[i - 1][j - 1] : 0);
             }
         }
 
