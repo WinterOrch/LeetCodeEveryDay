@@ -5,24 +5,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-public class MiniSpanTree {
-    private class Edge {
-        int begin;
-        int end;
-
-        int weight;
-
-        Edge (int begin, int end, int weight) {
-            this.begin = begin;
-            this.end = end;
-            this.weight = weight;
-        }
-    }
-
-    private class Graph {
-        int[] vertex;
-        Edge[] edges;
-    }
+public class MinSpanTree {
 
     int find(int[] parents, int father) {
         while (parents[father] > 0) {
@@ -33,7 +16,7 @@ public class MiniSpanTree {
 
     public List<Edge> kruskal(Graph input) {
         List<Edge> res = new ArrayList<>();
-        int[] parents = new int[input.vertex.length];
+        int[] parents = new int[input.vertex];
 
         Arrays.sort(input.edges, Comparator.comparingInt((Edge o) -> o.weight));
 
