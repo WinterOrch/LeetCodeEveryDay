@@ -1,6 +1,5 @@
 import org.openjdk.jmh.annotations.*;
 
-import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 @BenchmarkMode(Mode.AverageTime)
@@ -58,10 +57,7 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        int[][] input = {{6,1},{3,4},{2,1},{5,3},{2,4}};
+        Test ins = new Test();
 
-        int[][] res = Test.getRidOf(6, input);
-        System.out.println(Arrays.toString(res[0]));
-        System.out.println(Arrays.toString(res[1]));
     }
 }
