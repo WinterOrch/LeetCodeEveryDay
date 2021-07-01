@@ -119,7 +119,7 @@ public class SkipList {
         // 表示从最大层到低层，都要有节点数据
         newNode.maxLevel = level;
         // 记录要更新的层数，表示新节点要更新到哪几层
-        Node update[] = new Node[level];
+        Node[] update = new Node[level];
         for (int i = 0; i < level; ++i) {
             update[i] = head;
         }
