@@ -42,10 +42,7 @@ public class Leet347_TopKFrequentElements {
         Map<Integer, Integer> map = new HashMap<>();
         for(int num : nums) {
             if(map.containsKey(num)) {
-                map.compute(num, (key, v) -> {
-                    ++v;
-                    return v;
-                });
+                map.compute(num, (key, v) -> v += 1);
             }else {
                 map.put(num, 1);
             }
@@ -81,7 +78,7 @@ public class Leet347_TopKFrequentElements {
         int[] input = {1,1,1,2,2,3};
         int k = 2;
 
-        int[] res = ins.topKFrequent(input, k);
+        int[] res = ins.topKFrequent2(input, k);
 
         for(int r : res) {
             System.out.print(r + " ");
