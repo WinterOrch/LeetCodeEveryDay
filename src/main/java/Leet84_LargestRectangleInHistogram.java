@@ -69,6 +69,26 @@ public class Leet84_LargestRectangleInHistogram {
         return res;
     }
 
+    public int largestRec(int[] heights) {
+        int res = 0;
+
+        int[] stack = new int[heights.length];
+        int top = -1;
+        for (int i = 0; i < heights.length; ++i) {
+            while (top >= 0 && heights[stack[top]] >= heights[i]) {
+                int cur = stack[top--];
+                res = Math.max(res, heights[cur] * (top == -1 ? i : i - stack[top] - 1));
+            }
+            stack[++top] = i;
+        }
+
+        while (top >= 0 && heights[stack[top]] >= 0) {
+            res = Math.max(res, heights[stack[top--]] * (top == -1 ? heights.length : heights.length - stack[top] - 1));
+        }
+
+        return res;
+    }
+
     public static void main(String[] args) {
         int[] histogram = {2,1,5,6,2,3};
 
